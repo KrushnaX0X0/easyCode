@@ -139,8 +139,9 @@ const ViewAssignmet = () => {
 
    const loadUserAssignment = async () => {
       try {
-         const responce = await axios.get(`${API_URL}/api/answer/getuseranswer/${currentUser()?._id}/${assignmentId}`);
+         const responce = await axios.get(`${API_URL}/api/answer/getuseroneassignment/${currentUser()?._id}/${assignmentId}`);
          setuserAnswer(responce.data.data)
+         console.log(responce)
 
          if (responce.data?.data.length == 0) {
             setassignmentStatus('please submit your assignment')
@@ -152,7 +153,9 @@ const ViewAssignmet = () => {
       }
    }
 
-   console.log(userAnswer)
+  
+
+
 
    useEffect(() => {
       LoadAssignmentByID()
